@@ -1,4 +1,4 @@
-package gugudan;
+package com.kosta.j0801;
 import java.io.IOException;
 
 public class Gugudan_0801 {
