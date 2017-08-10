@@ -36,7 +36,7 @@ public class AnonymousInnerTest { //익명의 내부클래스
 			      }
 			     };
 			     
-			     
+		  
 		  a.hello();
 		  //a.gildong();//부모레퍼런스 통해 자식 호출 불가!! : 에러발생
 		  
@@ -47,14 +47,14 @@ public class AnonymousInnerTest { //익명의 내부클래스
 			void draw() {
 				System.out.println("예쁜그림~!!");				
 			}};	
-			
+		b.draw();
 	     //인터페이스 !!  class 무명 implements C{}  
 	     C c = new C() {
 			@Override
 			public void print() {
 				 System.out.println("자식오버라이딩 프린트~!!");
 			}};
-			
+			c.print();
 			
 	}//main
 }
