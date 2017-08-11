@@ -92,8 +92,9 @@ public class MenuTest extends Frame implements ItemListener{
 	}
 	public void text_Setting(String str) {
 		ta.setText(state);
-		ta.append("\n"+"1.돼지바"+ch[3].getState()+"\n"+"2.수박바"+ch[4].getState()+"\n"
-				+"3.조스바"+ch[5].getState());
+		ta.append("\n"+"1."+list[3] +": "+ch[3].getState()+"\n"+"2."+list[4]+": "+ch[4].getState()+"\n"
+				+"3."+list[5]+": "+ch[5].getState());
+
 	}
 	public static void main(String[] args) {
 		new MenuTest();
