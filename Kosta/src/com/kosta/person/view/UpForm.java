@@ -1,25 +1,25 @@
-package com.kosta.j0811;
+package com.kosta.person.view;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class InputForm extends JFrame{//ÀÔ·ÂÆû
+public class UpForm extends JFrame{//¼öÁ¤Æû
    
    JLabel la_name, la_age, la_job;	
-   JTextField tf_name, tf_age, tf_job;
-   public JButton bt_submit;
-JButton bt_cancel;
+   public JTextField tf_name, tf_age, tf_job;
+   public JButton bt_submit, bt_cancel;
    
-   public InputForm() {
-	  setTitle("ÀÔ·ÂÆû"); 
+   public UpForm() {
+	  setTitle("¼öÁ¤Æû"); 
 	   
       la_name = new JLabel("ÀÌ¸§");  
       la_age = new JLabel("³ªÀÌ");  
       la_job = new JLabel("Á÷¾÷");  
 
       tf_name = new JTextField();
+      tf_name.setEditable(false);
       tf_age = new JTextField();
       tf_job = new JTextField();
 

@@ -1,4 +1,4 @@
-package com.kosta.j0811;
+package com.kosta.person.view;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -8,9 +8,8 @@ import javax.swing.JTextField;
 public class InputForm extends JFrame{//ÀÔ·ÂÆû
    
    JLabel la_name, la_age, la_job;	
-   JTextField tf_name, tf_age, tf_job;
-   public JButton bt_submit;
-JButton bt_cancel;
+   public JTextField tf_name, tf_age, tf_job;
+   public JButton bt_submit, bt_cancel;
    
    public InputForm() {
 	  setTitle("ÀÔ·ÂÆû"); 
@@ -50,6 +49,20 @@ JButton bt_cancel;
       
       setBounds(300,200,200,300);
       //setVisible(true);
+      
+      tf_name.requestFocus();
    }//»ý¼ºÀÚ
   
-}
+   public void initForm() {
+	  tf_name.setText("");
+	  tf_age.setText("");
+	  tf_job.setText("");
+	  tf_name.requestFocus();
+   }//initForm
+   
+   
+}//InputForm
+
+
+
+

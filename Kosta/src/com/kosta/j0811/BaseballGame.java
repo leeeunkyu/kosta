@@ -30,22 +30,24 @@ public class BaseballGame extends JFrame implements ActionListener{
 	int randomnumber;
 	int strikescore;
 	int ballscore;
+	String pattern="[0-9]{3}";
+	int num=0;
+	boolean num_state=true;
 	public BaseballGame() {
-		bt_new=new JButton("새게임");
-		bt_clear=new JButton("지우기");
-		bt_answer=new JButton("정답");
-		bt_exit=new JButton("나가기");
-		ta = new JTextArea();
-		ta.setEditable(false);
-		//ta= new JTextArea(0, 700);
-		scroll = new JScrollPane(ta);
-		tf = new JTextField(30);
-		jl = new JLabel("입력");
-		c_pa=new JPanel();
-		b_pa=new JPanel();
-		w_pa=new JPanel();
-		rd=new Random();
+		generater();
+		settingLayout();
+		eventUp();
+		randomnumber=generateNum();
+		System.out.println(randomnumber);
+		b_pa.setBackground(Color.ORANGE);
+		w_pa.setBackground(Color.ORANGE);
+		this.setSize(800,500);
+		this.setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
+		// TODO Auto-generated constructor stub
+	}
+	public void settingLayout() {
 		this.setLayout(new BorderLayout());
 		c_pa.setBorder(new TitledBorder("기록판"));
 		c_pa.setLayout(new BorderLayout());
@@ -60,29 +62,34 @@ public class BaseballGame extends JFrame implements ActionListener{
 		w_pa.add(bt_answer);
 		w_pa.add(bt_exit);
 		this.add("East",w_pa);
-		//
+	}
+	public void eventUp() {
 		tf.addActionListener(this);
 		bt_new.addActionListener(this);
 		bt_clear.addActionListener(this);
 		bt_answer.addActionListener(this);
 		bt_exit.addActionListener(this);
-		randomnumber=generateNum();
-		System.out.println(randomnumber);
-		b_pa.setBackground(Color.ORANGE);
-	//	ta.setBackground(Color.ORANGE);
-		w_pa.setBackground(Color.ORANGE);
-		this.setSize(800,500);
-		this.setVisible(true);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-
-		// TODO Auto-generated constructor stub
+	}
+	public void generater() {
+		bt_new=new JButton("새게임");
+		bt_clear=new JButton("지우기");
+		bt_answer=new JButton("정답");
+		bt_exit=new JButton("나가기");
+		ta = new JTextArea();
+		ta.setEditable(false);
+		scroll = new JScrollPane(ta);
+		tf = new JTextField(30);
+		jl = new JLabel("입력");
+		c_pa=new JPanel();
+		b_pa=new JPanel();
+		w_pa=new JPanel();
+		rd=new Random();
 	}
 	public void gameStart() {
 		randomnumber=generateNum();
 		System.out.println(randomnumber);
 		tf.setText(" ");
 		ta.setText(" ");
-
 	}
 	public int generateNum() {
 		int i,j,k;
@@ -110,7 +117,6 @@ public class BaseballGame extends JFrame implements ActionListener{
 		r_i=randomnumber-randomnumber%100;
 		r_j=randomnumber%100-randomnumber%10;
 		r_k=randomnumber%10;
-		
 		i=usernum-usernum%100;
 		j=usernum%100-usernum%10;
 		k=usernum%10;
@@ -159,9 +165,6 @@ public class BaseballGame extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		Object ob = e.getSource();
-		int num=0;
-		String pattern="[0-9]{3}";
-		boolean num_state=true;
 		if(ob==tf) {
 			System.out.println(tf.getText().trim().matches(pattern));
 			try {
@@ -187,7 +190,7 @@ public class BaseballGame extends JFrame implements ActionListener{
 			   JOptionPane.showMessageDialog(this, "정답:  "+randomnumber);
 		}else if(ob==bt_exit) {
 			System.out.println("나가기");
-			
+			System.exit(1);
 		}
 	}
 }
